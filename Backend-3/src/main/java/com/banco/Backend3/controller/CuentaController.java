@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @RestController
@@ -28,7 +30,7 @@ public class CuentaController {
             Cuenta cuenta;
             if(cuentaOp.isPresent()){
                  cuenta = cuentaOp.get();
-                if(cuenta.getSaldo() >= compra.getPrecioFinal()){
+                if(cuenta.getSaldo() >= compra.getPrecioFinal() && cuenta.getFechaVencimiento().isBefore(LocalDate.now())){
                     cuenta.setSaldo(cuenta.getSaldo() - compra.getPrecioFinal());
                     cuentaRepository.save(cuenta);
                     return ResponseEntity.ok().body(true);
