@@ -1,11 +1,10 @@
 package com.banco.Backend3.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class Compra {
-    private int monto;
-    private String noTarjeta;
+    private int precioFinal;
+    private String numeroTarjeta;
     private int cvv;
     private LocalDate fechaVencimiento;
 
@@ -13,20 +12,20 @@ public class Compra {
 
     }
 
-    public int getMonto() {
-        return monto;
+    public int getPrecioFinal() {
+        return precioFinal;
     }
 
-    public void setMonto(int monto) {
-        this.monto = monto;
+    public void setPrecioFinal(int precioFinal) {
+        this.precioFinal = precioFinal;
     }
 
-    public String getNoTarjeta() {
-        return noTarjeta;
+    public String getNumeroTarjeta() {
+        return numeroTarjeta;
     }
 
-    public void setNoTarjeta(String noTarjeta) {
-        this.noTarjeta = noTarjeta;
+    public void setNumeroTarjeta(String numeroTarjeta) {
+        this.numeroTarjeta = numeroTarjeta;
     }
 
     public int getCvv() {
