@@ -30,7 +30,7 @@ public class CuentaController {
             Cuenta cuenta;
             if(cuentaOp.isPresent()){
                  cuenta = cuentaOp.get();
-                if(cuenta.getSaldo() >= compra.getPrecioFinal() && cuenta.getFechaVencimiento().isBefore(LocalDate.now())){
+                if(cuenta.getSaldo() >= compra.getPrecioFinal() && cuenta.getFechaVencimiento().isAfter(LocalDate.now())){
                     cuenta.setSaldo(cuenta.getSaldo() - compra.getPrecioFinal());
                     cuentaRepository.save(cuenta);
                     return ResponseEntity.ok().body(true);
